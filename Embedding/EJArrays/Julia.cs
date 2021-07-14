@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace EJStarter
+namespace EJArrays
 {
     // see https://github1s.com/JuliaLang/julia/blob/HEAD/src/julia.h
     class Julia
