@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EJStarter", "EJStarter\EJStarter.csproj", "{9A6D3820-9E39-432E-A72E-FAEDCF564FBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EJArrays", "EJArrays\EJArrays.csproj", "{01DA3B65-3524-4A37-8C27-2B77FDB308CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EJArrays", "EJArrays\EJArrays.csproj", "{01DA3B65-3524-4A37-8C27-2B77FDB308CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC70BE7E-1876-4C9C-9FD5-6BEA129CDEAD}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

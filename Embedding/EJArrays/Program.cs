@@ -8,11 +8,11 @@ namespace EJArrays
         static void Main(string[] _)
         {
             Julia.jl_init__threading();
-            IntPtr juliaDLL = NativeWin.LoadLibrary("libjulia.dll");
+            IntPtr juliaDLL = Win32.LoadLibraryA("libjulia.dll");
             if (juliaDLL != IntPtr.Zero)
             {
                 Console.WriteLine("DLL is loaded");
-                IntPtr p_jl_float64_type = NativeWin.GetProcAddress(juliaDLL, "jl_float64_type");
+                IntPtr p_jl_float64_type = Win32.GetProcAddress(juliaDLL, "jl_float64_type");
                 if (p_jl_float64_type != IntPtr.Zero)
                 {
                     Console.WriteLine(IntPtr.Size);

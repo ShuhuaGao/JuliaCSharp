@@ -13,18 +13,17 @@ namespace EJArrays
     /// <remarks>
     /// Reference: https://limbioliong.wordpress.com/2011/11/11/accessing-exported-data-from-a-dll-in-managed-code/
     /// </remarks>
-    class NativeWin
+    class Win32
     {
-        [DllImport("Kernel32.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        public static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)] string lpFileName);
 
         [DllImport("Kernel32.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        public static extern IntPtr GetProcAddress(IntPtr hModule, [MarshalAs(UnmanagedType.LPStr)] string lpProcName);
+        public static extern IntPtr LoadLibraryA(string lpFileName);
+
+        [DllImport("Kernel32.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        public static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
 
         [DllImport("Kernel32.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool FreeLibrary(IntPtr hModule);
-
-
     }
 }
