@@ -29,16 +29,30 @@ namespace EJArrays
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr jl_call1(IntPtr function, IntPtr arg);
 
+        // jl_value_t *jl_call2(jl_function_t *f JL_MAYBE_UNROOTED, jl_value_t *a JL_MAYBE_UNROOTED, jl_value_t *b JL_MAYBE_UNROOTED);
+        [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr jl_call2(IntPtr function, IntPtr arg1, IntPtr arg2);
+
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr jl_box_float64(double x);
 
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double jl_unbox_float64(IntPtr v);
 
+        // jl_value_t *jl_apply_array_type(jl_value_t *type, size_t dim)
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jl_exception_occurred();
+        public static extern IntPtr jl_apply_array_type(IntPtr type, UInt64 dim);
 
+        // jl_array_t *jl_alloc_array_1d(jl_value_t *atype, size_t nr);
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jl_typeof_str(IntPtr value);
+        public static extern IntPtr jl_alloc_array_1d(IntPtr type, UInt64 n);
+
+        // jl_value_t *jl_get_field(jl_value_t *o, const char *fld)
+        [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+        public static extern IntPtr jl_get_field(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string field);
+
+        // jl_value_t *jl_get_nth_field(jl_value_t *v, size_t i)
+        [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr jl_get_nth_field(IntPtr type, UInt64 i);
     }
 }

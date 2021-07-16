@@ -15,7 +15,7 @@ jl_value_t *jl_eval_string(const char *str);
 
     We may simply view `jl_value_t` a wrapper of any object in Julia.
 
-    There is no need to figure out the actual definition or even attempt to marshal it in C#, since the C API only deals with its pointer `jl_value_t*`. A pointer variable of any type in C can be represented by the [IntPtr](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=net-5.0) in C#. 
+    There is no need to figure out the actual definition or even attempt to marshal it in C#, since the C API only deals with its pointer `jl_value_t*`. A pointer variable of any type in C can be represented by the [IntPtr](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=net-5.0) in C#. In other words, `IntPtr` may be viewed as a `void*` in C/C++. 
 
 - How to marshal `const char*` parameter?
   
