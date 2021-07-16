@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace EJArrays
+namespace EJMemory
 {
     // see https://github1s.com/JuliaLang/julia/blob/HEAD/src/julia.h
     class Julia
@@ -33,7 +33,6 @@ namespace EJArrays
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr jl_call2(IntPtr function, IntPtr arg1, IntPtr arg2);
 
-
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr jl_call3(IntPtr function, IntPtr arg1, IntPtr arg2, IntPtr arg3);
 
@@ -53,10 +52,14 @@ namespace EJArrays
 
         // jl_value_t *jl_get_field(jl_value_t *o, const char *fld)
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        public static extern IntPtr jl_get_field(IntPtr obj, string field);
+        public static extern IntPtr jl_get_field(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string field);
 
         // jl_value_t *jl_get_nth_field(jl_value_t *v, size_t i)
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr jl_get_nth_field(IntPtr type, UInt64 i);
+
+
+        [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr jl_gc_collect(int mode);
     }
 }
