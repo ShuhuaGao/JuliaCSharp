@@ -31,7 +31,7 @@ unsafe
 }
 ```
 
-## Share C# array with Julia 
+## Share C# array with Julia and .NET memory pinning
 If there exists already an array in C#, how can we pass it to Julia? One obvious way is to first allocate an array (of a sufficient size) in Julia with `jl_alloc_array_1d` and then *copy* the data from C# array to the Julia array. Alternatively, we may want to **avoid the copy** and let Julia access the C# array data directly. 
 
 Recall that C# (and the .NET runtime) has its own managed memory space, which is distinct from the managed memory of Julia. Another key issue with the .NET managed memory is that the runtime may move the object to a different memory location freely (we will not feel it if we don't work with pointers though). Consequently, if we simply pass a pointer to a location in C# managed memory into a Julia function, the pointer may become invalid sometime. That's why memory *pinning* is critical when passing data from C# to Julia without copy. See [Copying and Pinning](https://docs.microsoft.com/en-us/dotnet/framework/interop/copying-and-pinning) for more details.
@@ -66,12 +66,18 @@ foreach (double ele in csArray)
 h.Free();
 ```
 
-**Caution**: the above `jlArray` wrapper returned by `jl_ptr_to_array_1d` is itself allocated and managed by Julia GC (see [source](https://github1s.com/JuliaLang/julia/blob/HEAD/src/array.c#L332)). Hence, a *safer* way is to also tell Julia that we are holding a reference to `jlArray` to ensure that `jlArray` survives subsequent `jl_...` calls (you should do it in production code). Check the above section on how to do it.
+:bangbang:**Caution**::bangbang: 
+- The last argument of `jl_ptr_to_array_1d` must be 0 to tell that Julia does NOT own this memory; otherwise, Julia runtime will try to `free` this memory.
+
+- The above `jlArray` wrapper returned by `jl_ptr_to_array_1d` is itself allocated and managed by Julia GC (see [source](https://github1s.com/JuliaLang/julia/blob/HEAD/src/array.c#L332)). Hence, a *safer* way is to also tell Julia that we are holding a reference to `jlArray` to ensure that `jlArray` survives subsequent `jl_...` calls (you should do it in production code). Check the above section on how to do it.
+
+:blush: :grin: The above `GCHandle` boilerplate code can be simplifed with the `fixed` keyword. See the next tutorial [EJToyApp](../EJToyApp) for an example. 
 
 ## Multidimensional Arrays
 > Julia's multidimensional arrays are stored in memory in column-major order. 
 
-Thus, we may view the multidimensional array as a long 1D array and interpret the indexing carefully. Special attention should be paid to the fact the multi-dim arrays in C/C++/C# are stored in row-major order.
+Thus, we may view the multidimensional array as a long 1D array and interpret the indexing carefully. Special attention should be paid to the fact the multi-dim arrays in C/C++/C# are stored in row-major order. Check the next tutorial [EJToyApp](../EJToyApp) for an example. 
+
 
 
 
