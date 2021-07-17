@@ -1,4 +1,4 @@
-# Julia & C# interoperation via embedding
+# Julia & C# interoperation via Julia embedding
 
 ## Principle
 As documented in [Embedding Julia](https://docs.julialang.org/en/v1/manual/embedding/#Embedding-Julia), Julia has exposed a set of [C API](https://github1s.com/JuliaLang/julia/blob/HEAD/src/julia.h) to allow other languages to integrate Julia code.  
@@ -15,3 +15,7 @@ The following tutorials all work with the raw form of C API present in [julia.h]
 2. [Working with arrays](./EJArrays): how to pass around arrays between Julia and C#
 3. [Memory management](./EJMemory): how to keep the two worlds of managed memory safe
 4. [A toy example: solve linear equations](./EJToyApp): use the techniques we have learned and cooperate with [Math.NET](https://www.mathdotnet.com/)
+
+## How to run the code
+Open *Embedding.sln* with Visual Studio to play with various projects.
+Tested with VS 2019, .NET 5.0, and Julia 1.6.2 (x64) on Windows 10.
