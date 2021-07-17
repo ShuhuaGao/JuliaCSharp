@@ -65,9 +65,7 @@ namespace EJMemory
         public static extern IntPtr jl_gc_collect(int mode);
 
         [DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr jl_ptr_to_array_1d(IntPtr type, [In, Out] double[] data, size_t length, int own_buffer);
+        public static extern IntPtr jl_ptr_to_array_1d(IntPtr type, IntPtr data, size_t length, int own_buffer);
 
-        //[DllImport("libjulia.dll", CallingConvention = CallingConvention.Cdecl)]
-        //public static extern IntPtr jl_ptr_to_array_1d(IntPtr type, [In, Out] float[] data, size_t length, int own_buffer);
     }
 }

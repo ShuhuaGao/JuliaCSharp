@@ -107,7 +107,7 @@ for (int i = 0; i < 5; i++)
     Console.WriteLine(Marshal.PtrToStructure<double>(p));
 }
 ```
-The above `for` loop can also be replaced by `unsafe` code to deal with the pointer (of type `double*`) directly.
+The above `for` loop can also be replaced by `unsafe` code to deal with the pointer (of type `double*`) directly. Please check the next project [EJMemory](../EJMemory) for an example. 
 
 
     
