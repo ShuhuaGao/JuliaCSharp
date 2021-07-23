@@ -14,6 +14,7 @@ namespace EJMemory
             // Create a global `IdDict` during the initialization.
             IntPtr REFS = Julia.jl_eval_string("const REFS = IdDict()");
             IntPtr setindex_ = Julia.jl_eval_string("setindex!");
+            IntPtr delete_ = Julia.jl_eval_string("delete!");
             // `var` is a `Vector{Float64}`, which is mutable.
             IntPtr var = Julia.jl_eval_string("[sqrt(2.0); sqrt(4.0); sqrt(6.0)]");
             // To protect `var`, add its reference to `REFS`.
@@ -25,6 +26,8 @@ namespace EJMemory
                 for (int i = 0; i < 3; i++)
                     Console.WriteLine(*(data + i));
             }
+            // stop GC rooting and allow GC to deallocate 
+            Julia.jl_call2(delete_, REFS, var);
             #endregion
 
 
