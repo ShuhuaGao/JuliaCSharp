@@ -14,7 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EJMemory", "EJMemory\EJMemory.csproj", "{167B0927-B6F4-45AC-8167-724948662362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EJToyApp", "EJToyApp\EJToyApp.csproj", "{A203A294-E7E4-45B5-B0E5-83609F685768}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EJToyApp", "EJToyApp\EJToyApp.csproj", "{A203A294-E7E4-45B5-B0E5-83609F685768}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EJExceptions", "EJExceptions\EJExceptions.csproj", "{5935E17E-0596-4C0E-908E-7371F3F8B98B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EJThreads", "EJThreads\EJThreads.csproj", "{1C4DB374-C69E-4AF7-82DF-30AFC6B53361}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{A203A294-E7E4-45B5-B0E5-83609F685768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A203A294-E7E4-45B5-B0E5-83609F685768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A203A294-E7E4-45B5-B0E5-83609F685768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5935E17E-0596-4C0E-908E-7371F3F8B98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5935E17E-0596-4C0E-908E-7371F3F8B98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5935E17E-0596-4C0E-908E-7371F3F8B98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5935E17E-0596-4C0E-908E-7371F3F8B98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4DB374-C69E-4AF7-82DF-30AFC6B53361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4DB374-C69E-4AF7-82DF-30AFC6B53361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4DB374-C69E-4AF7-82DF-30AFC6B53361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4DB374-C69E-4AF7-82DF-30AFC6B53361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
